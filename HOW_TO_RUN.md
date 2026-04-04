@@ -8,7 +8,7 @@ The backend requires its virtual environment to be activated and needs to run fr
 1. Open a new terminal.
 2. Navigate to your project folder:
    ```powershell
-   cd c:\Users\bojja\Downloads\lawada\lawada
+   cd c:\Users\bojja\Downloads\
    ```
 3. Run the Flask server using the Python executable inside your virtual environment:
    ```powershell

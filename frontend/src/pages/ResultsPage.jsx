@@ -229,7 +229,7 @@ export default function ResultsPage() {
 
   useEffect(() => {
     if (!token) return;
-    axios.get(`http://localhost:5000/api/analysis/${id}`, {
+    axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/analysis/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(r => setResult(r.data.analysis))

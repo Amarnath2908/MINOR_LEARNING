@@ -90,7 +90,7 @@ export default function HistoryPage() {
   const fetchHistory = async () => {
     setLoading(true);
     try {
-      const resp = await axios.get('http://localhost:5000/api/analysis/history', {
+      const resp = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/analysis/history`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setHistory(resp.data.history || []);

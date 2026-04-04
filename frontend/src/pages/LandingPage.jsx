@@ -73,7 +73,7 @@ export default function LandingPage() {
       <div className="landing-hero">
         <div className="landing-eyebrow">
           <Sparkles size={13} />
-          Final Year Project — EduPredict v2.0
+          EduPredict v2.0
         </div>
 
         <h1>
@@ -176,10 +176,10 @@ export default function LandingPage() {
       {/* ── Footer ───────────────────────────────────────────── */}
       <div style={{ textAlign: 'center', padding: '2rem 0 1rem', borderTop: '1px solid var(--border)' }}>
         <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-          EduPredict · Student Learning Behavior Analysis System · Final Year Project 2026
+          EduPredict · Student Learning Behavior Analysis System
         </p>
         <p style={{ color: 'var(--text-muted)', fontSize: '0.78rem', marginTop: '0.5rem' }}>
-          Built with React · FastAPI · scikit-learn · Recharts · Lucide React
+          Built with React · Flask · scikit-learn · Recharts · Lucide React
         </p>
       </div>
     </div>

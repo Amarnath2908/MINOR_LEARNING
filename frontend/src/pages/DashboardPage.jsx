@@ -166,7 +166,7 @@ export default function DashboardPage() {
     setIsSubmitting(true);
     setError(null);
     try {
-      const resp = await axios.post('http://localhost:5000/api/analysis/predict', form, {
+      const resp = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/analysis/predict`, form, {
         headers: { Authorization: `Bearer ${token}` }
       });
       addToast('Analysis complete!', 'success');
