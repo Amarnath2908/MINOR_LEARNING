@@ -1,3 +1,4 @@
+// DARK BLUE THEME — EduPredict v2.0
 import React, { useEffect, useState, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
@@ -50,14 +51,14 @@ const riskClass    = (r) => ({ Low: 'low-risk', Medium: 'medium-risk', High: 'hi
 const outcomeColor = (o) => ({ Excellent: '#10b981', Good: '#3b82f6', Average: '#f59e0b', Poor: '#ef4444', 'At Risk': '#ef4444' }[o] || '#f59e0b');
 const riskColor    = (r) => ({ Low: '#10b981', Medium: '#f59e0b', High: '#ef4444' }[r] || '#f59e0b');
 
-const CHART_COLORS = ['#4f46e5', '#0ea5e9', '#10b981', '#f59e0b', '#8b5cf6', '#ef4444', '#06b6d4'];
+const CHART_COLORS = ['#60a5fa', '#1a6ff5', '#10b981', '#f59e0b', '#c4b5fd', '#fca5a5', '#34d399'];
 
 // ── Custom Chart Tooltip ──────────────────────────────────────────────────────
 const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload?.length) return null;
   return (
-    <div style={{ background: 'white', border: '1px solid var(--border)', borderRadius: 8, padding: '0.625rem 0.875rem', boxShadow: 'var(--shadow-md)', fontSize: '0.8rem' }}>
-      <p style={{ fontWeight: 700, marginBottom: 4 }}>{label}</p>
+    <div style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-glow)', borderRadius: 8, padding: '0.625rem 0.875rem', boxShadow: 'var(--shadow-md), 0 0 20px rgba(26,111,245,0.15)', fontSize: '0.8rem' }}>
+      <p style={{ fontWeight: 700, marginBottom: 4, color: 'var(--text-primary)' }}>{label}</p>
       {payload.map((p, i) => (
         <p key={i} style={{ color: p.color }}>{p.name}: <strong>{typeof p.value === 'number' ? p.value.toFixed(1) : p.value}</strong></p>
       ))}
@@ -262,25 +263,25 @@ export default function ResultsPage() {
 
         {/* ── CHARTS ROW 1 ── */}
         <div className="charts-grid" style={{ marginBottom: '1.5rem' }}>
-          <ChartCard title="Target vs Current (Engagement)" icon={Monitor} iconColor="#0ea5e9" subtitle="Are you meeting the recommended benchmarks?" delay={0.1}>
+          <ChartCard title="Target vs Current (Engagement)" icon={Monitor} iconColor="#60a5fa" subtitle="Are you meeting the recommended benchmarks?" delay={0.1}>
             <ResponsiveContainer width="100%" height={250}>
               <BarChart data={barData} layout="vertical" margin={{ top: 5, right: 10, left: 20, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" horizontal={true} vertical={false} />
+                <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" horizontal={true} vertical={false} />
                 <XAxis type="number" tick={{ fontSize: 10, fill: 'var(--text-muted)' }} />
                 <YAxis dataKey="name" type="category" tick={{ fontSize: 11, fill: 'var(--text-secondary)' }} width={80} />
                 <Tooltip content={<CustomTooltip />} />
-                <Bar dataKey="value" name="Your Value" fill="#4f46e5" radius={[0, 4, 4, 0]} barSize={12}
+                <Bar dataKey="value" name="Your Value" fill="#60a5fa" radius={[0, 4, 4, 0]} barSize={12}
                   isAnimationActive={true} animationDuration={1000} animationEasing="ease-out" />
-                <Bar dataKey="target" name="Recommended Target" fill="#e5e7eb" radius={[0, 4, 4, 0]} barSize={12}
+                <Bar dataKey="target" name="Recommended Target" fill="rgba(96,165,250,0.2)" radius={[0, 4, 4, 0]} barSize={12}
                   isAnimationActive={true} animationDuration={1200} animationEasing="ease-out" />
               </BarChart>
             </ResponsiveContainer>
           </ChartCard>
 
-          <ChartCard title="Behavioral Profile" icon={Brain} iconColor="#8b5cf6" subtitle="Radar view of your study habits vs benchmark" delay={0.18}>
+          <ChartCard title="Behavioral Profile" icon={Brain} iconColor="#60a5fa" subtitle="Radar view of your study habits vs benchmark" delay={0.18}>
             <ResponsiveContainer width="100%" height={250}>
               <RadarChart data={radarData} margin={{ top: 10, right: 30, bottom: 10, left: 30 }}>
-                <PolarGrid stroke="var(--border)" />
+                <PolarGrid stroke="var(--border-subtle)" />
                 <PolarAngleAxis dataKey="subject" tick={{ fontSize: 11, fill: 'var(--text-secondary)' }} />
                 <PolarRadiusAxis angle={30} domain={[0, 100]} tick={{ fontSize: 9, fill: 'var(--text-muted)' }} />
                 <Radar name="Target Benchmark" dataKey="Target" stroke="#e5e7eb" fill="#f3f4f6" fillOpacity={0.4} strokeWidth={1} strokeDasharray="4 4" isAnimationActive={true} animationDuration={1400} />
@@ -304,7 +305,7 @@ export default function ResultsPage() {
               <div style={{ padding: '0 0 1rem' }}>
                 <ResponsiveContainer width="100%" height={fiData.length * 28 + 20}>
                   <BarChart data={fiData} layout="vertical" margin={{ top: 0, right: 20, left: 80, bottom: 0 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" horizontal={false} />
+                    <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" horizontal={false} />
                     <XAxis type="number" tick={{ fontSize: 10, fill: 'var(--text-muted)' }} domain={[0, 100]} unit="%" />
                     <YAxis type="category" dataKey="name" tick={{ fontSize: 11, fill: 'var(--text-secondary)' }} width={80} />
                     <Tooltip content={<CustomTooltip />} formatter={(v) => [`${v}%`, 'Importance']} />
@@ -322,14 +323,14 @@ export default function ResultsPage() {
         {/* ── SMART IMPROVEMENT PLAN ── */}
         <motion.div
           className="chart-card"
-          style={{ marginBottom: '1.5rem', padding: '1.75rem', borderTop: '4px solid #4f46e5' }}
+          style={{ marginBottom: '1.5rem', padding: '1.75rem', borderTop: '4px solid var(--accent-primary)' }}
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.44, ease: [0.22, 1, 0.36, 1], delay: 0.32 }}
         >
           <div className="section-title-row">
             <div className="section-title" style={{ fontSize: '1.25rem' }}>
-              <div className="section-title-icon" style={{ background: '#4f46e5', color: '#fff' }}>
+              <div className="section-title-icon" style={{ background: 'var(--accent-primary)', color: '#fff', border: 'none' }}>
                 <Lightbulb size={18} />
               </div>
               Your Smart Improvement Plan
@@ -341,7 +342,7 @@ export default function ResultsPage() {
 
           {d.predicted_risk_level === 'High' && (
             <motion.div
-              style={{ display: 'flex', gap: '0.875rem', padding: '1rem', background: '#fef2f2', border: '1px solid #fca5a5', borderRadius: 'var(--radius-md)', marginBottom: '1.5rem', fontSize: '0.9rem', color: '#991b1b', alignItems: 'center' }}
+              style={{ display: 'flex', gap: '0.875rem', padding: '1rem', background: 'var(--danger-light)', border: '1px solid var(--danger-border)', borderRadius: 'var(--radius-md)', marginBottom: '1.5rem', fontSize: '0.9rem', color: '#fca5a5', alignItems: 'center' }}
               initial={{ opacity: 0, scale: 0.97 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4, type: 'spring', stiffness: 400, damping: 22 }}
@@ -355,7 +356,7 @@ export default function ResultsPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {recs.filter(r => (r.priority || '').includes('High')).length > 0 && (
                 <div style={{ marginBottom: '0.5rem' }}>
-                  <h4 style={{ color: '#ef4444', borderBottom: '1px solid #fecaca', paddingBottom: '0.5rem', marginBottom: '1rem' }}>⚠️ Immediate Actions (High Priority)</h4>
+                <h4 style={{ color: '#fca5a5', borderBottom: '1px solid var(--danger-border)', paddingBottom: '0.5rem', marginBottom: '1rem' }}>⚠️ Immediate Actions (High Priority)</h4>
                   <motion.div variants={staggerContainer} initial="initial" animate="animate">
                     {recs.filter(r => (r.priority || '').includes('High')).map((rec, i) => (
                       <RecommendationCard key={`hi-${i}`} rec={rec} idx={i} />
@@ -365,7 +366,7 @@ export default function ResultsPage() {
               )}
               {recs.filter(r => (r.priority || '') === 'Medium' || (r.priority || '').includes('Medium')).length > 0 && (
                 <div style={{ marginBottom: '0.5rem' }}>
-                  <h4 style={{ color: '#f59e0b', borderBottom: '1px solid #fde68a', paddingBottom: '0.5rem', marginBottom: '1rem' }}>📈 Improve Next (Medium Priority)</h4>
+                <h4 style={{ color: '#fcd34d', borderBottom: '1px solid var(--warning-border)', paddingBottom: '0.5rem', marginBottom: '1rem' }}>📈 Improve Next (Medium Priority)</h4>
                   <motion.div variants={staggerContainer} initial="initial" animate="animate">
                     {recs.filter(r => (r.priority || '') === 'Medium' || (r.priority || '').includes('Medium')).map((rec, i) => (
                       <RecommendationCard key={`med-${i}`} rec={rec} idx={i} />
@@ -375,7 +376,7 @@ export default function ResultsPage() {
               )}
               {recs.filter(r => (r.priority || '') === 'Low' || (r.priority || '').includes('Low') || (!r.priority && typeof r !== 'string')).length > 0 && (
                 <div style={{ marginBottom: '0.5rem' }}>
-                  <h4 style={{ color: '#10b981', borderBottom: '1px solid #bbf7d0', paddingBottom: '0.5rem', marginBottom: '1rem' }}>✅ Keep it Up (Routine / Strengths)</h4>
+                <h4 style={{ color: '#6ee7b7', borderBottom: '1px solid var(--success-border)', paddingBottom: '0.5rem', marginBottom: '1rem' }}>✅ Keep it Up (Routine / Strengths)</h4>
                   <motion.div variants={staggerContainer} initial="initial" animate="animate">
                     {recs.filter(r => (r.priority || '') === 'Low' || (r.priority || '').includes('Low') || (!r.priority && typeof r !== 'string')).map((rec, i) => (
                       <RecommendationCard key={`lo-${i}`} rec={rec} idx={i} />

@@ -62,7 +62,7 @@ export default function LoginPage() {
                 >
                   <BookOpen size={22} />
                 </motion.div>
-                <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 800, fontSize: '1.25rem' }}>EduPredict</span>
+                <span style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '1.25rem' }}>EduPredict</span>
               </div>
               <h2>Welcome back to your learning hub</h2>
               <p>Sign in to access your analysis history, run new assessments, and track your academic growth over time.</p>
@@ -133,7 +133,7 @@ export default function LoginPage() {
                   id="email" type="email" className="input-field"
                   value={email} onChange={e => setEmail(e.target.value)}
                   required placeholder="student@university.edu"
-                  whileFocus={{ boxShadow: '0 0 0 3px rgba(79,70,229,0.15)', borderColor: '#4f46e5' }}
+                  whileFocus={{ boxShadow: '0 0 0 3px rgba(26,111,245,0.18), 0 0 12px rgba(26,111,245,0.25)', borderColor: 'var(--border-glow)' }}
                   transition={{ duration: 0.2 }}
                 />
               </motion.div>
@@ -155,13 +155,13 @@ export default function LoginPage() {
                     value={password} onChange={e => setPassword(e.target.value)}
                     required placeholder="••••••••"
                     style={{ paddingRight: '2.75rem' }}
-                    whileFocus={{ boxShadow: '0 0 0 3px rgba(79,70,229,0.15)', borderColor: '#4f46e5' }}
+                    whileFocus={{ boxShadow: '0 0 0 3px rgba(26,111,245,0.18), 0 0 12px rgba(26,111,245,0.25)', borderColor: 'var(--border-glow)' }}
                     transition={{ duration: 0.2 }}
                   />
                   <motion.button
                     type="button" onClick={() => setShowPwd(s => !s)}
                     style={{ position: 'absolute', right: '0.75rem', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)' }}
-                    whileHover={{ color: 'var(--primary)', scale: 1.1 }}
+                    whileHover={{ color: 'var(--accent-bright)', scale: 1.1 }}
                     whileTap={{ scale: 0.92 }}
                   >
                     {showPwd ? <EyeOff size={16} /> : <Eye size={16} />}

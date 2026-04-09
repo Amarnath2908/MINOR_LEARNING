@@ -43,20 +43,20 @@ export default function GradientButton({
     overflow: 'hidden',
     ...sizeMap[size],
     ...(variant === 'primary' && {
-      background: 'linear-gradient(135deg, #4f46e5, #7c3aed)',
+      background: 'linear-gradient(135deg, #1a6ff5, #2563eb)',
       color: '#fff',
-      boxShadow: '0 4px 14px rgba(79,70,229,0.32)',
+      boxShadow: '0 0 20px rgba(26,111,245,0.4)',
     }),
     ...(variant === 'secondary' && {
-      background: '#fff',
+      background: 'var(--bg-elevated)',
       color: 'var(--text-primary)',
-      border: '1.5px solid var(--border)',
-      boxShadow: '0 1px 3px rgba(0,0,0,0.06)',
+      border: '1px solid var(--border-subtle)',
+      boxShadow: 'var(--shadow-xs)',
     }),
     ...(variant === 'ghost' && {
       background: 'transparent',
-      color: 'var(--primary)',
-      border: '1.5px solid transparent',
+      color: 'var(--accent-bright)',
+      border: '1px solid transparent',
     }),
     ...(disabled || loading ? { opacity: 0.55 } : {}),
     ...style,
@@ -71,10 +71,10 @@ export default function GradientButton({
       whileHover={!disabled && !loading ? {
         y: -2,
         boxShadow: variant === 'primary'
-          ? '0 8px 24px rgba(79,70,229,0.45)'
-          : '0 4px 12px rgba(0,0,0,0.10)',
+          ? '0 0 35px rgba(26,111,245,0.65)'
+          : '0 6px 20px rgba(0,0,0,0.3)',
         ...(variant === 'primary' && {
-          background: 'linear-gradient(135deg, #4338ca, #6d28d9)',
+          background: 'linear-gradient(135deg, #2979ff, #1a6ff5)',
         }),
       } : {}}
       whileTap={!disabled && !loading ? { scale: 0.96 } : {}}

@@ -1,3 +1,4 @@
+// DARK BLUE THEME — EduPredict v2.0
 import React, { useEffect, useState, useContext, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -49,8 +50,8 @@ function TrendIcon({ trend }) {
 const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload?.length) return null;
   return (
-    <div style={{ background: 'white', border: '1px solid var(--border)', borderRadius: 8, padding: '0.625rem 0.875rem', boxShadow: 'var(--shadow-md)', fontSize: '0.8rem' }}>
-      <p style={{ fontWeight: 700, marginBottom: 4 }}>{label}</p>
+    <div style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-glow)', borderRadius: 8, padding: '0.625rem 0.875rem', boxShadow: 'var(--shadow-md), 0 0 20px rgba(26,111,245,0.15)', fontSize: '0.8rem' }}>
+      <p style={{ fontWeight: 700, marginBottom: 4, color: 'var(--text-primary)' }}>{label}</p>
       {payload.map((p, i) => <p key={i} style={{ color: p.color }}>{p.name}: <strong>{p.value}</strong></p>)}
     </div>
   );
@@ -133,7 +134,7 @@ export default function HistoryPage() {
           {[...Array(4)].map((_, i) => (
             <motion.div
               key={i}
-              style={{ height: 90, borderRadius: 12, background: 'linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%)', backgroundSize: '200% auto' }}
+              style={{ height: 90, borderRadius: 12, background: 'linear-gradient(90deg, #0a1628 25%, #112347 50%, #0a1628 75%)', backgroundSize: '200% auto' }}
               animate={{ backgroundPosition: ['0% center', '200% center'] }}
               transition={{ duration: 1.6, repeat: Infinity, ease: 'linear', delay: i * 0.1 }}
             />
@@ -142,7 +143,7 @@ export default function HistoryPage() {
         {[180, 400].map((h, i) => (
           <motion.div
             key={i}
-            style={{ height: h, borderRadius: 12, marginBottom: '1.25rem', background: 'linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%)', backgroundSize: '200% auto' }}
+            style={{ height: h, borderRadius: 12, marginBottom: '1.25rem', background: 'linear-gradient(90deg, #0a1628 25%, #112347 50%, #0a1628 75%)', backgroundSize: '200% auto' }}
             animate={{ backgroundPosition: ['0% center', '200% center'] }}
             transition={{ duration: 1.6, repeat: Infinity, ease: 'linear', delay: i * 0.15 }}
           />
@@ -212,13 +213,13 @@ export default function HistoryPage() {
             </div>
             <ResponsiveContainer width="100%" height={160}>
               <LineChart data={trendData} margin={{ top: 5, right: 20, left: -10, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
+                <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" vertical={false} />
                 <XAxis dataKey="name" tick={{ fontSize: 10, fill: 'var(--text-muted)' }} />
                 <YAxis domain={[0, 100]} tick={{ fontSize: 10, fill: 'var(--text-muted)' }} />
                 <Tooltip content={<CustomTooltip />} />
-                <Line type="monotone" dataKey="Health" stroke="#4f46e5" strokeWidth={2} dot={{ r: 3, fill: '#4f46e5' }} name="Health Score"
+                <Line type="monotone" dataKey="Health" stroke="var(--accent-bright)" strokeWidth={2} dot={{ r: 3, fill: 'var(--accent-bright)' }} name="Health Score"
                   isAnimationActive={true} animationDuration={1200} animationEasing="ease-out" />
-                <Line type="monotone" dataKey="Attendance" stroke="#10b981" strokeWidth={2} dot={{ r: 3, fill: '#10b981' }} name="Attendance %" strokeDasharray="5 3"
+                <Line type="monotone" dataKey="Attendance" stroke="var(--success)" strokeWidth={2} dot={{ r: 3, fill: 'var(--success)' }} name="Attendance %" strokeDasharray="5 3"
                   isAnimationActive={true} animationDuration={1400} animationEasing="ease-out" />
               </LineChart>
             </ResponsiveContainer>

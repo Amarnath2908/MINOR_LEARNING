@@ -31,7 +31,8 @@ export default function ChartCard({
       transition={{ duration: 0.44, ease: [0.22, 1, 0.36, 1], delay }}
       whileHover={{
         y: -3,
-        boxShadow: '0 12px 36px rgba(79,70,229,0.09), 0 4px 14px rgba(0,0,0,0.06)',
+        boxShadow: '0 12px 36px rgba(26,111,245,0.15), 0 4px 14px rgba(0,0,0,0.4)',
+        borderColor: 'rgba(26,111,245,0.3)',
         transition: { type: 'spring', stiffness: 340, damping: 24 },
       }}
     >

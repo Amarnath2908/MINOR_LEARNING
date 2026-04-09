@@ -1,3 +1,4 @@
+// DARK BLUE THEME — EduPredict v2.0
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -91,6 +92,7 @@ function SliderField({ id, label, hint, min, max, step = 1, unit = '', value, on
   const { level, cls } = getSliderClass(id, value);
   const pct = ((value - min) / (max - min)) * 100;
   const trackColor = level === 'high' ? 'var(--success)' : level === 'medium' ? 'var(--warning)' : 'var(--danger)';
+  // dark theme uses same status colors
 
   return (
     <div className="range-wrap">
@@ -137,7 +139,7 @@ function NumberField({ id, label, hint, min, max, step = 1, unit, value, onChang
           id={id} type="number" name={id} className="input-field"
           min={min} max={max} step={step} value={value} onChange={onChange}
           style={{ paddingRight: unit ? '3.5rem' : '0.9rem' }}
-          whileFocus={{ boxShadow: '0 0 0 3px rgba(79,70,229,0.12)', borderColor: '#4f46e5' }}
+          whileFocus={{ boxShadow: '0 0 0 3px rgba(26,111,245,0.18), 0 0 12px rgba(26,111,245,0.25)', borderColor: 'var(--border-glow)' }}
         />
         {unit && (
           <span style={{ position: 'absolute', right: '0.75rem', top: '50%', transform: 'translateY(-50%)', fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 600 }}>
@@ -160,7 +162,7 @@ function AnimatedGauge({ value, color }) {
 
   return (
     <svg width="120" height="72" viewBox="0 0 120 72" style={{ overflow: 'visible' }}>
-      <path d={trackD} stroke="var(--surface-2)" strokeWidth="8" fill="none" strokeLinecap="round" />
+      <path d={trackD} stroke="#1a3358" strokeWidth="8" fill="none" strokeLinecap="round" />
       <motion.path
         d={trackD}
         stroke={color}
@@ -171,7 +173,7 @@ function AnimatedGauge({ value, color }) {
         animate={{ strokeDashoffset: dashOffset }}
         transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
       />
-      <text x={cx} y={cy - 8} textAnchor="middle" style={{ fontSize: '18px', fontWeight: 800, fill: color, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{value}</text>
+      <text x={cx} y={cy - 8} textAnchor="middle" style={{ fontSize: '18px', fontWeight: 800, fill: color, fontFamily: "'Space Grotesk', sans-serif" }}>{value}</text>
       <text x={cx} y={cy + 8} textAnchor="middle" style={{ fontSize: '8px', fill: 'var(--text-muted)', fontFamily: 'Inter, sans-serif' }}>/ 100</text>
     </svg>
   );
@@ -238,7 +240,7 @@ export default function DashboardPage() {
       <div style={{ marginBottom: '1.75rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem' }}>
         <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
           <div className="section-label" style={{ marginBottom: '0.4rem' }}>New Assessment</div>
-          <h1 style={{ fontSize: '1.75rem', marginBottom: '0.375rem' }}>
+          <h1 style={{ fontSize: '1.75rem', marginBottom: '0.375rem', fontFamily: "'Space Grotesk', sans-serif" }}>
             Hello, {user?.full_name?.split(' ')[0] || 'Student'} 👋
           </h1>
           <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
@@ -304,8 +306,8 @@ export default function DashboardPage() {
               <motion.div key="step0" variants={slideVariants} initial="initial" animate="animate" exit="exit">
                 <div className="form-section">
                   <div className="form-section-header">
-                    <div className="form-section-icon" style={{ background: '#eef2ff' }}>
-                      <BookOpen size={18} style={{ color: '#4f46e5' }} />
+                    <div className="form-section-icon">
+                      <BookOpen size={18} style={{ color: 'var(--accent-bright)' }} />
                     </div>
                     <div>
                       <h3>Academic Engagement</h3>
@@ -332,8 +334,8 @@ export default function DashboardPage() {
               <motion.div key="step1" variants={slideVariants} initial="initial" animate="animate" exit="exit">
                 <div className="form-section">
                   <div className="form-section-header">
-                    <div className="form-section-icon" style={{ background: '#f0f9ff' }}>
-                      <Monitor size={18} style={{ color: '#0ea5e9' }} />
+                    <div className="form-section-icon">
+                      <Monitor size={18} style={{ color: '#60a5fa' }} />
                     </div>
                     <div>
                       <h3>LMS & Digital Learning Usage</h3>
@@ -364,8 +366,8 @@ export default function DashboardPage() {
               <motion.div key="step2" variants={slideVariants} initial="initial" animate="animate" exit="exit">
                 <div className="form-section">
                   <div className="form-section-header">
-                    <div className="form-section-icon" style={{ background: '#f5f3ff' }}>
-                      <Brain size={18} style={{ color: '#8b5cf6' }} />
+                    <div className="form-section-icon">
+                      <Brain size={18} style={{ color: '#c4b5fd' }} />
                     </div>
                     <div>
                       <h3>Your Study Habits & Choices</h3>
@@ -373,7 +375,7 @@ export default function DashboardPage() {
                     </div>
                   </div>
 
-                  <div style={{ background: 'var(--info-light)', border: '1px solid var(--info-border)', borderRadius: 'var(--radius-md)', padding: '0.75rem 1rem', marginBottom: '1.25rem', display: 'flex', gap: '0.625rem', alignItems: 'flex-start', fontSize: '0.8rem', color: '#1e3a5f' }}>
+                  <div style={{ background: 'rgba(96,165,250,0.08)', border: '1px solid rgba(96,165,250,0.25)', borderRadius: 'var(--radius-md)', padding: '0.75rem 1rem', marginBottom: '1.25rem', display: 'flex', gap: '0.625rem', alignItems: 'flex-start', fontSize: '0.8rem', color: 'var(--accent-bright)' }}>
                     <Info size={15} style={{ flexShrink: 0, marginTop: 1 }} />
                     <span>Note: For <strong>Putting Off Work</strong> and <strong>How Stressed You Feel</strong>, a lower score is better!</span>
                   </div>
@@ -471,7 +473,7 @@ export default function DashboardPage() {
               <motion.div
                 key={i}
                 style={{ flex: 1, height: 4, borderRadius: 2 }}
-                animate={{ background: step >= i ? 'var(--primary)' : 'var(--border)' }}
+                animate={{ background: step >= i ? 'var(--accent-primary)' : 'var(--border-subtle)' }}
                 transition={{ duration: 0.35 }}
               />
             ))}

@@ -18,7 +18,7 @@ function ShimmerBlock({ height = 80, style = {} }) {
       style={{
         height,
         borderRadius: 12,
-        background: 'linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%)',
+        background: 'linear-gradient(90deg, #0a1628 25%, #112347 50%, #0a1628 75%)',
         backgroundSize: '200% auto',
         ...style,
       }}
@@ -43,22 +43,23 @@ export default function LoadingAnalysisScreen() {
       <motion.div
         style={{
           width: 80, height: 80, borderRadius: '50%',
-          background: 'linear-gradient(135deg, #eef2ff, #ede9fe)',
+          background: 'linear-gradient(135deg, rgba(26,111,245,0.2), rgba(124,58,237,0.2))',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           marginBottom: '1.5rem',
-          boxShadow: '0 0 0 0 rgba(79,70,229,0.3)',
+          border: '1px solid rgba(26,111,245,0.3)',
+          boxShadow: '0 0 0 0 rgba(26,111,245,0.4)',
         }}
         animate={{
           boxShadow: [
-            '0 0 0 0 rgba(79,70,229,0.3)',
-            '0 0 0 18px rgba(79,70,229,0)',
-            '0 0 0 0 rgba(79,70,229,0)',
+            '0 0 0 0 rgba(26,111,245,0.4)',
+            '0 0 0 18px rgba(26,111,245,0)',
+            '0 0 0 0 rgba(26,111,245,0)',
           ],
           scale: [1, 1.05, 1],
         }}
         transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
       >
-        <Brain size={36} style={{ color: '#4f46e5' }} />
+        <Brain size={36} style={{ color: 'var(--accent-bright)' }} />
       </motion.div>
 
       <div className="section-label" style={{ marginBottom: '0.5rem' }}>AI Analysis in Progress</div>
@@ -85,19 +86,20 @@ export default function LoadingAnalysisScreen() {
               style={{
                 display: 'flex', alignItems: 'center', gap: '0.875rem',
                 padding: '0.75rem 1rem', borderRadius: 10, marginBottom: '0.5rem',
-                background: 'white', border: '1px solid var(--border)',
-                boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
+                background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)',
+                boxShadow: 'var(--shadow-sm)',
               }}
             >
               <motion.div
                 style={{
                   width: 34, height: 34, borderRadius: '50%', flexShrink: 0,
-                  background: '#eef2ff', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  background: 'var(--primary-light)', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  border: '1px solid var(--primary-mid)',
                 }}
                 animate={{ rotate: [0, 8, -8, 0] }}
                 transition={{ duration: 2, delay: i * 0.4, repeat: Infinity, ease: 'easeInOut' }}
               >
-                <Icon size={16} style={{ color: '#4f46e5' }} />
+                <Icon size={16} style={{ color: 'var(--accent-bright)' }} />
               </motion.div>
               <span style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', fontWeight: 500 }}>
                 {step.text}
@@ -107,7 +109,7 @@ export default function LoadingAnalysisScreen() {
                 {[0, 1, 2].map(d => (
                   <motion.div
                     key={d}
-                    style={{ width: 5, height: 5, borderRadius: '50%', background: '#c7d2fe' }}
+                    style={{ width: 5, height: 5, borderRadius: '50%', background: 'var(--accent-bright)', opacity: 0.6 }}
                     animate={{ opacity: [0.3, 1, 0.3], scale: [0.8, 1.1, 0.8] }}
                     transition={{ duration: 1, delay: i * 0.15 + d * 0.2, repeat: Infinity }}
                   />

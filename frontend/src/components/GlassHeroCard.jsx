@@ -153,7 +153,7 @@ export default function GlassHeroCard({
                 <span ref={scoreCountRef} style={{
                   fontSize: '1.75rem', fontWeight: 800,
                   color: scoreColor,
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontFamily: "'Space Grotesk', sans-serif",
                 }}>0</span>
                 <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)', marginTop: '-2px' }}>/ 100</span>
               </div>
@@ -172,7 +172,7 @@ export default function GlassHeroCard({
           animate="animate"
         >
           <HeroStat label="Health Score" value={healthScore} sub=" /100" color={scoreColor} delay={0} />
-          <HeroStat label="Confidence" value={confidence ? `${confidence}%` : 'N/A'} color="#c7d2fe" delay={0.06} numeric={false} />
+          <HeroStat label="Confidence" value={confidence ? `${confidence}%` : 'N/A'} color="var(--accent-bright)" delay={0.06} numeric={false} />
           <HeroStat label="Study Hours" value={studyHours} sub="/day" color="rgba(255,255,255,0.9)" delay={0.12} />
           <HeroStat label="Attendance" value={attendance} sub="%" color="rgba(255,255,255,0.9)" delay={0.18} />
         </motion.div>

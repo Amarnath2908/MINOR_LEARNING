@@ -41,7 +41,8 @@ export default function AnimatedMetricCard({ icon: Icon, label, value, unit = ''
       animate="animate"
       whileHover={{
         y: -5,
-        boxShadow: '0 12px 32px rgba(79,70,229,0.13), 0 4px 12px rgba(0,0,0,0.07)',
+        boxShadow: '0 12px 32px rgba(26,111,245,0.15), 0 4px 12px rgba(0,0,0,0.4)',
+        borderColor: 'var(--border-glow)',
         transition: { type: 'spring', stiffness: 380, damping: 22 },
       }}
       style={{ cursor: 'default' }}

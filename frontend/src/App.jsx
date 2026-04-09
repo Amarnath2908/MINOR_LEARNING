@@ -96,9 +96,9 @@ function App() {
 
   if (loading) {
     return (
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', flexDirection: 'column', gap: '1rem', background: 'var(--background)' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', flexDirection: 'column', gap: '1rem', background: 'var(--bg-base)' }}>
         <motion.div
-          style={{ width: 44, height: 44, border: '3px solid var(--border)', borderTop: '3px solid var(--primary)', borderRadius: '50%' }}
+          style={{ width: 44, height: 44, border: '3px solid var(--border-subtle)', borderTop: '3px solid var(--accent-primary)', borderRadius: '50%' }}
           animate={{ rotate: 360 }}
           transition={{ duration: 0.8, repeat: Infinity, ease: 'linear' }}
         />
@@ -230,7 +230,7 @@ function NavLink({ to, active, children, icon }) {
           layoutId="nav-underline"
           style={{
             position: 'absolute', bottom: -4, left: 0, right: 0,
-            height: 2, background: 'var(--primary)', borderRadius: 2,
+            height: 2, background: 'var(--accent-primary)', borderRadius: 2,
           }}
           transition={{ type: 'spring', stiffness: 380, damping: 28 }}
         />
