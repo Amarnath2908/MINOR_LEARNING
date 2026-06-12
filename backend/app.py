@@ -4,10 +4,11 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 from dotenv import load_dotenv
 
-from backend.config import Config
-from backend.models import db
-from backend.routes.auth_routes import auth_bp
-from backend.routes.prediction_routes import prediction_bp
+
+from config import Config
+from models import db
+from routes.auth_routes import auth_bp
+from routes.prediction_routes import prediction_bp
 
 # Load environment variables (if .env is present)
 load_dotenv()
